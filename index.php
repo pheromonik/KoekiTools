@@ -15,6 +15,7 @@
 //
 //mysqli_close($link);
 
+echo "Index";
 require_once __DIR__ . "/controllers/start.php";
 require_once __DIR__ . "/db/toolsDb.php";
 
