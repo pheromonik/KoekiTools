@@ -2,11 +2,24 @@
 
 class start
 {
-    public static function run()
+    public function run()
     {
-        echo "Test";
-        $db = new toolsDb();
-        $value = $db->getArray('SELECT * FROM TESTTABELLE');
-        echo $value[0][0];
+        $className = registry::getConfig()->getRequestParameter('cl');
+
+        $output = '';
+        try {
+            $class = new $className();
+            $functionName = registry::getConfig()->getRequestParameter('fnc');
+            if ($functionName) {
+                $class->$functionName();
+            } else {
+                $class->render();
+            }
+
+        } catch (Exception $exception) {
+            $class = new BaseController();
+            $output = $class->render();
+        }
+        echo $output;
     }
 }

@@ -7,7 +7,12 @@ class toolsDb
      */
     private static $dbInstance = null;
 
-    public function getPDO(): PDO
+    public function __construct()
+    {
+        $this->initDb();
+    }
+
+    public function initDb()
     {
         if (self::$dbInstance === null) {
             $dsn = 'mysql:dbname=web133_tools;host=localhost';
@@ -19,11 +24,20 @@ class toolsDb
                 echo $exception->getMessage();
             }
         }
+    }
+
+    public function getPDO()
+    {
+        $this->initDb();
         return self::$dbInstance;
     }
 
-    public function getArray(string $sql): ?array
+    public function getArray($sql)
     {
         return $this->getPDO()->query($sql)->fetchAll();
     }
+
+//$db = new toolsDb();
+//$value = $db->getArray('SELECT * FROM TestTabelle');
+//echo $value[0][0];
 }
