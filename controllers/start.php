@@ -8,14 +8,18 @@ class start
 
         $output = '';
         try {
-            $class = new $className();
-            $functionName = registry::getConfig()->getRequestParameter('fnc');
-            if ($functionName) {
-                $class->$functionName();
+            if ($className) {
+                $class = new $className();
+                $functionName = registry::getConfig()->getRequestParameter('fnc');
+                if ($functionName) {
+                    $class->$functionName();
+                } else {
+                    $class->render();
+                }
             } else {
-                $class->render();
+                $class = new BaseController();
+                $output = $class->render();
             }
-
         } catch (Exception $exception) {
             $class = new BaseController();
             $output = $class->render();
