@@ -18,4 +18,5 @@
 require_once __DIR__ . "/controllers/start.php";
 require_once __DIR__ . "/db/toolsDb.php";
 
+echo "Index";
 start::run();
