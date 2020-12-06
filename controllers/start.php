@@ -6,6 +6,6 @@ class start
     {
         $db = new toolsDb();
         $value = $db->getArray('SELECT * FROM TESTTABELLE');
-        echo serialize($value);
+        echo $value[0][0];
     }
 }
