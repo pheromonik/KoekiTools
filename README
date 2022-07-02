@@ -1,0 +1,6 @@
+## Description ###
+
+## TODO ###
+Ich habe keinen Weg gefunden, wie Mailman von außen konfiguriert werden kann. 
+Dennoch könnte ein Tool zur Mitgliederverwaltung nützlich sein, dass die Mailadressen speichert und die einzelnen Listen verwaltet.
+Der Output könnte dann einfach als Datei zur Verfügung gestellt werden und komplett in die Maillinglisten eingefügt werden (über Plex)
